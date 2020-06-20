@@ -2,4 +2,4 @@
 
 import { userName } from '../src/cli.js';
 
-console.log(`Hello, ${userName} !`);
+export default userName;
