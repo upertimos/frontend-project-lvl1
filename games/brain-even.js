@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { userName } from '../src/cli.js';
+import { userName } from '../src/greeting.js';
 import { oops } from './brain-calc.js';
 
 console.log('Answer "yes" if the number is even, otherwise answer "no".');

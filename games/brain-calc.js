@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { userName } from '../src/cli.js';
+import { userName } from '../src/greeting.js';
 
 export const randomNumFromTen = () => Math.floor(Math.random() * 10);
 

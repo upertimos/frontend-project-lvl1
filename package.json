@@ -4,6 +4,7 @@
   "description": "first frontend project from Hexlet",
   "main": "index.js",
   "bin": {
+    "brain-gcd": "bin/brain-gcd.js",
     "brain-calc": "bin/brain-calc.js",
     "brain-even": "bin/brain-even.js",
     "brain-games": "bin/brain-games.js"

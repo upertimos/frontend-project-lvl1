@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { userName } from '../src/cli.js';
+import { userName } from '../src/greeting.js';
 import { randomNumFromTen, calc, count } from '../games/brain-calc.js';
 
 for (let i = 0; i < 3; i += 1) {
