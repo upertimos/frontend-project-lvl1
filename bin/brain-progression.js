@@ -1,13 +1,15 @@
 #!/usr/bin/env node
 
-import { NODgame, randomNum } from '../games/brain-gcd.js';
+import { getProgression, brainProgression } from '../games/brain-progression.js';
 import { userName } from '../src/greeting.js';
+
+const randomNum = Math.floor(Math.random() * 10);
 
 // eslint-disable-next-line consistent-return
 const execute = () => {
-  console.log('Find the greatest common divisor of given numbers.');
+  console.log('What number is missing in the progression?');
   for (let i = 1; i < 4; i += 1) {
-    const call = NODgame(randomNum(), randomNum());
+    const call = brainProgression(getProgression(randomNum));
     if (call === 'Correct!') {
       console.log('Correct!');
       if (i === 3) {
