@@ -1,9 +1,10 @@
 import readlineSync from 'readline-sync';
 import oops from '../src/oops.js';
+import randomInteger from '../src/randomInteger.js';
 
 export const getProgression = (firstNum) => {
   const arr = [];
-  const randomNum = Math.floor(Math.random() * 10);
+  const randomNum = randomInteger(0, 10);
   for (let i = 0; i < 10; i += 1) {
     if (arr.length === 0) {
       arr.push(firstNum);

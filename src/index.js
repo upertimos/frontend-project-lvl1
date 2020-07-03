@@ -1,19 +1,20 @@
-import { userName } from './cli.js';
-import { randomNum, question } from '../games/brain-even.js';
-import { randomNumFromTen, calc } from '../games/brain-calc.js';
-
-export const launch = (callOfGame) => {
-  const count = 0;
-  for (let i = 0; i < 3; i += 1) {
-    if (count < 4) {
-      console.log(callOfGame);
+/* const execute = () => {
+  console.log(task);
+  for (let i = 1; i < 4; i += 1) {
+    const call = здесь вызов функции нужной игры
+    if (call === 'Correct!') {
+      console.log('Correct!');
+      if (i === 3) {
+        return (`Congratulations, ${userName} !`);
+      }
+    } else {
+      return call;
     }
   }
-  if (count === 3) {
-    console.log(`Congratulations, ${userName} !`);
-  }
 };
 
-export {
-  randomNum, question, randomNumFromTen, calc,
-};
+не знаю, как организовать общую логику. функция вызова получилась универсальная,
+ однако возможно ли сделать так, чтобы вызов функции с нужной игрой передавался в качестве
+ аргумента универсальной функции? сделать я так не смог во всяком случае.
+
+*/

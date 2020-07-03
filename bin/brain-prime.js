@@ -1,14 +1,13 @@
 #!/usr/bin/env node
 
-import { getProgression, brainProgression } from '../games/brain-progression.js';
+import { primeGame, task } from '../games/brain-prime.js';
 import userName from '../src/greeting.js';
-import randomInteger from '../src/randomInteger.js';
 
 // eslint-disable-next-line consistent-return
 const execute = () => {
-  console.log('What number is missing in the progression?');
+  console.log(task);
   for (let i = 1; i < 4; i += 1) {
-    const call = brainProgression(getProgression(randomInteger(0, 10)));
+    const call = primeGame();
     if (call === 'Correct!') {
       console.log('Correct!');
       if (i === 3) {

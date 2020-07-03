@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 
-import { NODgame, randomNum } from '../games/brain-gcd.js';
-import { userName } from '../src/greeting.js';
+import { NODgame, task } from '../games/brain-gcd.js';
+import userName from '../src/greeting.js';
+import randomInteger from '../src/randomInteger.js';
 
 // eslint-disable-next-line consistent-return
 const execute = () => {
-  console.log('Find the greatest common divisor of given numbers.');
+  console.log(task);
   for (let i = 1; i < 4; i += 1) {
-    const call = NODgame(randomNum(), randomNum());
+    const call = NODgame(randomInteger(0, 100), randomInteger(0, 100));
     if (call === 'Correct!') {
       console.log('Correct!');
       if (i === 3) {

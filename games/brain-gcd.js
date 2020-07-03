@@ -1,8 +1,6 @@
 import readlineSync from 'readline-sync';
-import { userName } from '../src/greeting.js';
+import userName from '../src/greeting.js';
 import oops from '../src/oops.js';
-
-export const randomNum = () => Math.floor(Math.random() * 100);
 
 const NOD = (num1, num2) => {
   let x = num1;
@@ -30,3 +28,5 @@ export const NODgame = (num1, num2) => {
 
   return oops(answer, expression, userName);
 };
+
+export const task = 'Find the greatest common divisor of given numbers.';

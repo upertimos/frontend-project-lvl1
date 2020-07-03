@@ -1,13 +1,23 @@
 #!/usr/bin/env node
 
-import { userName } from '../src/greeting.js';
-import { randomNum, question, count } from '../games/brain-even.js';
+import userName from '../src/greeting.js';
+import { question, task } from '../games/brain-even.js';
+import randomInteger from '../src/randomInteger.js';
 
-for (let i = 0; i < 3; i += 1) {
-  if (count < 4) {
-    console.log(question(randomNum()));
+// eslint-disable-next-line consistent-return
+const execute = () => {
+  console.log(task);
+  for (let i = 1; i < 4; i += 1) {
+    const call = question(randomInteger(0, 100));
+    if (call === 'Correct!') {
+      console.log('Correct!');
+      if (i === 3) {
+        return (`Congratulations, ${userName} !`);
+      }
+    } else {
+      return call;
+    }
   }
-}
-if (count === 3) {
-  console.log(`Congratulations, ${userName} !`);
-}
+};
+
+console.log(execute());
