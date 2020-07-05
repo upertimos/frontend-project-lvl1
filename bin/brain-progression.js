@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { getProgression, brainProgression } from '../games/brain-progression.js';
+import { getProgression, progressionGame } from '../games/brain-progression.js';
 import userName from '../src/greeting.js';
 import randomInteger from '../src/randomInteger.js';
 
@@ -8,7 +8,7 @@ import randomInteger from '../src/randomInteger.js';
 const execute = () => {
   console.log('What number is missing in the progression?');
   for (let i = 1; i < 4; i += 1) {
-    const call = brainProgression(getProgression(randomInteger(0, 10)));
+    const call = progressionGame(getProgression(randomInteger(0, 10)));
     if (call === 'Correct!') {
       console.log('Correct!');
       if (i === 3) {

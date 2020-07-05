@@ -15,7 +15,7 @@ export const getProgression = (firstNum) => {
   return arr.slice(0, arr.length - 1);
 };
 
-export const brainProgression = (progression) => {
+export const progressionGame = (progression) => {
   const index = Math.floor(Math.random() * 10);
   const question = progression.slice(0, index)
     .concat('..', progression.slice(index + 1, progression.length)).join(' ');

@@ -4,7 +4,7 @@ import oops from '../src/oops.js';
 
 export const task = 'What is the result of the expression?';
 
-export const calc = (num1, num2) => {
+export const calcGame = (num1, num2) => {
   const arrOfOperators = [[`${num1} + ${num2}`], [`${num1} - ${num2}`], [`${num1} * ${num2}`]];
   const arrOfExpression = [[num1 + num2], [num1 - num2], [num1 * num2]];
   const index = Math.floor(Math.random() * arrOfOperators.length);
