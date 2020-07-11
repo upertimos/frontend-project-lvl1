@@ -1,8 +1,7 @@
-import readlineSync from 'readline-sync';
-import oops from '../src/oops.js';
+import engine from '../src/index.js';
 import randomInteger from '../src/randomInteger.js';
 
-export const isPrime = (n) => {
+const isPrime = (n) => {
   if (n === 2) {
     return 'yes';
   }
@@ -14,15 +13,17 @@ export const isPrime = (n) => {
   return 'yes';
 };
 
-export const primeGame = () => {
+const generator = () => {
+  const arr = [];
   const randomNum = randomInteger(2, 1000);
-  console.log(`Question: ${randomNum}`);
-  const answer = readlineSync.question('Your answer: ');
-  const expression = isPrime(randomNum);
-  if (answer === expression) {
-    return 'Correct!';
-  }
-  return oops(answer, expression);
+  const answer = isPrime(randomNum);
+  arr.push(randomNum, answer);
+  return arr;
 };
 
-export const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const primeGame = () => {
+  const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  (engine(task, generator));
+};
+
+export default primeGame;

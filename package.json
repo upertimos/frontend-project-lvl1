@@ -2,6 +2,11 @@
   "name": "frontend-project-lvl1",
   "version": "1.0.0",
   "description": "first frontend project from Hexlet",
+  "keywords": [
+    "brain-games",
+    "consol games",
+    "puzzle"
+  ],
   "main": "index.js",
   "bin": {
     "brain-prime": "bin/brain-prime.js",

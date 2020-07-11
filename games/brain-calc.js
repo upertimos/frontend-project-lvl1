@@ -1,19 +1,20 @@
-import readlineSync from 'readline-sync';
-import userName from '../src/greeting.js';
-import oops from '../src/oops.js';
+import engine from '../src/index.js';
+import randomInteger from '../src/randomInteger.js';
 
-export const task = 'What is the result of the expression?';
-
-export const calcGame = (num1, num2) => {
+const generator = () => {
+  const arr = [];
+  const num1 = randomInteger(0, 10);
+  const num2 = randomInteger(0, 10);
   const arrOfOperators = [[`${num1} + ${num2}`], [`${num1} - ${num2}`], [`${num1} * ${num2}`]];
   const arrOfExpression = [[num1 + num2], [num1 - num2], [num1 * num2]];
   const index = Math.floor(Math.random() * arrOfOperators.length);
-  const expression = +(arrOfExpression[index].join(' '));
-  console.log(`Question: ${arrOfOperators[index].join(' ')}`);
-  const answer = readlineSync.question('Your answer: ');
-  if (+answer === expression) {
-    return 'Correct!';
-  }
-
-  return oops(answer, expression, userName);
+  arr.push((arrOfOperators[index].join(' ')), (arrOfExpression[index].join(' ')));
+  return arr;
 };
+
+const calcGame = () => {
+  const task = 'What is the result of the expression?';
+  (engine(task, generator));
+};
+
+export default calcGame;
