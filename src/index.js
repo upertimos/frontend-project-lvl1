@@ -1,25 +1,25 @@
 import readlineSync from 'readline-sync';
+import numOfGameRounds from './numOfGameRounds.js';
 
 // eslint-disable-next-line consistent-return
-const engine = (task, generator) => {
+const runEngine = (task, generator) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(task);
-  for (let i = 1; i < 4; i += 1) {
+  for (let i = 0; i < numOfGameRounds; i += 1) {
     const pair = generator();
-    console.log(`Question: ${pair[0]}`);
+    const [question, rightAnswer] = pair;
+    console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
-    if (answer === pair[1]) {
+    if (answer === rightAnswer) {
       console.log('Correct!');
-      if (i === 3) {
-        console.log(`Congratulations, ${userName} !`);
-      }
     } else {
-      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${pair[1]}".
-Let's try again, ${userName} !`);
+      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${rightAnswer}".`);
+      console.log(`Let's try again, ${userName} !`);
       return;
     }
   }
+  console.log(`Congratulations, ${userName} !`);
 };
 
-export default engine;
+export default runEngine;

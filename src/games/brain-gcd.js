@@ -1,5 +1,6 @@
-import engine from '../src/index.js';
-import randomInteger from '../src/randomInteger.js';
+import runEngine from '../index.js';
+import randomInteger from '../randomInteger.js';
+import NODgameTask from '../tasks_for_games/NODgameTask.js';
 
 const NOD = (num1, num2) => {
   let x = num1;
@@ -17,18 +18,16 @@ const NOD = (num1, num2) => {
   return x;
 };
 
-const generator = () => {
-  const arr = [];
+const gameDataGenerator = () => {
   const num1 = randomInteger(0, 100);
   const num2 = randomInteger(0, 100);
   const answer = (NOD(num1, num2));
-  arr.push(`${num1} ${num2}`, String(answer));
-  return arr;
+  return [`${num1} ${num2}`, String(answer)];
 };
 
-const NODgame = () => {
-  const task = 'Find the greatest common divisor of given numbers.';
-  (engine(task, generator));
+const startNODgame = () => {
+  const task = NODgameTask;
+  (runEngine(task, gameDataGenerator));
 };
 
-export default NODgame;
+export default startNODgame;
