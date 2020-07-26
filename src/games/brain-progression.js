@@ -1,11 +1,14 @@
 import runEngine from '../index.js';
-import randomInteger from '../randomInteger.js';
-import progressionGameTask from '../tasks_for_games/progressionGameTask.js';
+import randomInteger from '../utils.js';
+
+const task = 'What number is missing in the progression?';
+
+const progressionLength = 10;
 
 const getProgression = (firstNum) => {
   const arr = [];
   const randomNum = randomInteger(0, 10);
-  for (let i = 0; i < 10; i += 1) {
+  for (let i = 0; i < progressionLength; i += 1) {
     if (arr.length === 0) {
       arr.push(firstNum);
     } else {
@@ -15,9 +18,9 @@ const getProgression = (firstNum) => {
   return arr.slice(0, arr.length - 1);
 };
 
-const gameDataGenerator = () => {
+const genGameData = () => {
   const progression = getProgression(randomInteger(0, 10));
-  const index = randomInteger(0, 9);
+  const index = randomInteger(0, progressionLength - 1);
   const question = progression.slice(0, index)
     .concat('..', progression.slice(index + 1, progression.length)).join(' ');
   const answer = progression[index];
@@ -25,8 +28,7 @@ const gameDataGenerator = () => {
 };
 
 const startProgressionGame = () => {
-  const task = progressionGameTask;
-  (runEngine(task, gameDataGenerator));
+  runEngine(task, genGameData);
 };
 
 export default startProgressionGame;

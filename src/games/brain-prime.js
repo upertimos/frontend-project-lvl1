@@ -1,25 +1,29 @@
 import runEngine from '../index.js';
-import randomInteger from '../randomInteger.js';
-import primeGameTask from '../tasks_for_games/primeGameTask.js';
+import randomInteger from '../utils.js';
 
-const checkNumberIsPrime = (n) => {
+const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+const isPrime = (n) => {
+  if (n <= 1) {
+    return false;
+  }
   for (let i = 2; i <= Math.sqrt(n); i += 1) {
     if (n % i === 0) {
-      return 'no';
+      return false;
     }
   }
-  return 'yes';
+  return true;
 };
 
-const gameDataGenerator = () => {
-  const question = randomInteger(2, 1000);
-  const rightAnswer = checkNumberIsPrime(question);
+const genGameData = () => {
+  const question = randomInteger(0, 1000);
+  const primeOrNot = isPrime(question);
+  const rightAnswer = primeOrNot === true ? 'yes' : 'no';
   return [question, rightAnswer];
 };
 
 const startPrimeGame = () => {
-  const task = primeGameTask;
-  (runEngine(task, gameDataGenerator));
+  runEngine(task, genGameData);
 };
 
 export default startPrimeGame;

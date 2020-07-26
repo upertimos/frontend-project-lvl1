@@ -1,33 +1,26 @@
 import runEngine from '../index.js';
-import randomInteger from '../randomInteger.js';
-import NODgameTask from '../tasks_for_games/NODgameTask.js';
+import randomInteger from '../utils.js';
 
-const NOD = (num1, num2) => {
-  let x = num1;
-  let y = num2;
-  for (let i = 1; i < num1; i += 1) {
-    while (x && y) {
-      if (x > y) {
-        x %= y;
-      } else {
-        y %= x;
-      }
-    }
-    x += y;
+const task = 'Find the greatest common divisor of given numbers.';
+
+const getGCD = (num1, num2) => {
+  const a = num1;
+  const b = num2;
+  if (b === 0) {
+    return a;
   }
-  return x;
+  return getGCD(b, a % b);
 };
 
-const gameDataGenerator = () => {
+const genGameData = () => {
   const num1 = randomInteger(0, 100);
   const num2 = randomInteger(0, 100);
-  const answer = (NOD(num1, num2));
+  const answer = (getGCD(num1, num2));
   return [`${num1} ${num2}`, String(answer)];
 };
 
-const startNODgame = () => {
-  const task = NODgameTask;
-  (runEngine(task, gameDataGenerator));
+const startGCDgame = () => {
+  runEngine(task, genGameData);
 };
 
-export default startNODgame;
+export default startGCDgame;

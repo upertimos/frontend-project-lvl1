@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
-import numOfGameRounds from './numOfGameRounds.js';
+
+const numOfGameRounds = 3;
 
 // eslint-disable-next-line consistent-return
 const runEngine = (task, generator) => {
@@ -7,8 +8,8 @@ const runEngine = (task, generator) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(task);
   for (let i = 0; i < numOfGameRounds; i += 1) {
-    const pair = generator();
-    const [question, rightAnswer] = pair;
+    const gameData = generator();
+    const [question, rightAnswer] = gameData;
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
     if (answer === rightAnswer) {
