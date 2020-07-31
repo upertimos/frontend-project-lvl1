@@ -5,26 +5,27 @@ const task = 'What number is missing in the progression?';
 
 const progressionLength = 10;
 
-const getProgression = (firstNum) => {
-  const arr = [];
-  const randomNum = randomInteger(0, 10);
-  for (let i = 0; i < progressionLength; i += 1) {
-    if (arr.length === 0) {
-      arr.push(firstNum);
+const makeProgression = (firstNum, step, length) => {
+  const progression = [];
+  for (let i = 0; i < length; i += 1) {
+    if (progression.length === 0) {
+      progression.push(firstNum);
     } else {
-      arr.push(arr[i] = arr[i - 1] + randomNum);
+      progression.push(firstNum + i * step);
     }
   }
-  return arr.slice(0, arr.length - 1);
+  return progression;
 };
 
 const genGameData = () => {
-  const progression = getProgression(randomInteger(0, 10));
-  const index = randomInteger(0, progressionLength - 1);
-  const question = progression.slice(0, index)
-    .concat('..', progression.slice(index + 1, progression.length)).join(' ');
+  const firstNum = randomInteger(0, 10);
+  const stepOfProgression = randomInteger(0, 10);
+  const progression = makeProgression(firstNum, stepOfProgression, progressionLength);
+  const index = randomInteger(0, progression.length - 1);
   const answer = progression[index];
-  return [question, String(answer)];
+  progression.splice(index, 1, '..');
+
+  return [progression.join(' '), String(answer)];
 };
 
 const startProgressionGame = () => {

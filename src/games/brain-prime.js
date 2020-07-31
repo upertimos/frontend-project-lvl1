@@ -17,8 +17,7 @@ const isPrime = (n) => {
 
 const genGameData = () => {
   const question = randomInteger(0, 1000);
-  const primeOrNot = isPrime(question);
-  const rightAnswer = primeOrNot === true ? 'yes' : 'no';
+  const rightAnswer = isPrime(question) ? 'yes' : 'no';
   return [question, rightAnswer];
 };
 

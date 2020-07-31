@@ -4,19 +4,18 @@ import randomInteger from '../utils.js';
 const task = 'Find the greatest common divisor of given numbers.';
 
 const getGCD = (num1, num2) => {
-  const a = num1;
-  const b = num2;
-  if (b === 0) {
-    return a;
+  if (num2 === 0) {
+    return num1;
   }
-  return getGCD(b, a % b);
+  return getGCD(num2, num1 % num2);
 };
 
 const genGameData = () => {
   const num1 = randomInteger(0, 100);
   const num2 = randomInteger(0, 100);
   const answer = (getGCD(num1, num2));
-  return [`${num1} ${num2}`, String(answer)];
+  const question = `${num1} ${num2}`;
+  return [question, String(answer)];
 };
 
 const startGCDgame = () => {
