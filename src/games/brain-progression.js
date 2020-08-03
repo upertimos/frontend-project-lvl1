@@ -8,11 +8,7 @@ const progressionLength = 10;
 const makeProgression = (firstNum, step, length) => {
   const progression = [];
   for (let i = 0; i < length; i += 1) {
-    if (progression.length === 0) {
-      progression.push(firstNum);
-    } else {
-      progression.push(firstNum + i * step);
-    }
+    progression.push(firstNum + i * step);
   }
   return progression;
 };
@@ -23,7 +19,7 @@ const genGameData = () => {
   const progression = makeProgression(firstNum, stepOfProgression, progressionLength);
   const index = randomInteger(0, progression.length - 1);
   const answer = progression[index];
-  progression.splice(index, 1, '..');
+  progression[index] = '..';
 
   return [progression.join(' '), String(answer)];
 };
